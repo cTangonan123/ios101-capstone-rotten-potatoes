@@ -27,7 +27,9 @@ final class MovieService {
   ) async throws -> T {
     let apiReadAccessToken = AppConfig.shared.apiReadAccessToken
     
-    var components = URLComponents(string: baseURL + endpoint)!
+    guard var components = URLComponents(string: baseURL + endpoint) else {
+      throw URLError(.badURL)
+    }
     components.queryItems = queryParams.map {
       URLQueryItem(name: $0.key, value: $0.value)
     }
