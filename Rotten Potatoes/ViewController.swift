@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     // Do any additional setup after loading the view.
     newReleasesTableView.dataSource = self
     // Application uses Config.xcconfig in order to reserve API_KEY and API_READ_ACCESS_TOKEN see README.md for details
-    fetchNewReleases()
+    Task { await fetchNewReleases() }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -68,110 +68,32 @@ class ViewController: UIViewController, UITableViewDataSource {
     return cell
   }
   
-  private func fetchNewReleases() {
-    let apiKey = AppConfig.shared.apiKey
-    let apiReadAccessToken = AppConfig.shared.apiReadAccessToken
-    
-    // see if api key is accessible
-    print("API Key: \(apiKey)")
-    print("API Read Access Token: \(apiReadAccessToken)")
-    
-    let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing")!
-    var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
-    let queryItems: [URLQueryItem] = [
-      URLQueryItem(name: "language", value: "en-US"),
-      URLQueryItem(name: "page", value: "1"),
-    ]
-    components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
-
-    var request = URLRequest(url: components.url!)
-    request.httpMethod = "GET"
-    request.timeoutInterval = 10
-    request.allHTTPHeaderFields = [
-      "accept": "application/json",
-      "Authorization": "Bearer \(apiReadAccessToken)"
+  // MARK: API call to fetch New Releases
+  private func fetchNewReleases() async {
+    let endpoint = "/movie/now_playing"
+    let query = [
+      "language": "en-US",
+      "page": "1"
     ]
     
-    // ---
-    // Create the URL Session to execute a network request given the above url in order to fetch our movie data.
-    // https://developer.apple.com/documentation/foundation/url_loading_system/fetching_website_data_into_memory
-    // ---
-    let session = URLSession.shared.dataTask(with: request) { data, response, error in
+    do {
+      let response = try await MovieService.shared.fetch(
+        endpoint: endpoint,
+        queryParams: query,
+        responseType: MovieFeed.self
+      )
 
-      // Check for errors
-      if let error = error {
-        print("🚨 Request failed: \(error.localizedDescription)")
-        return
+      // MainActor indicates it will be run on the main thread
+      await MainActor.run {
+        self.movies = response.results
+        self.newReleasesTableView.reloadData()
       }
-
-      // Check for server errors
-      // Make sure the response is within the `200-299` range (the standard range for a successful response).
-      guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-        print("🚨 Server Error: response: \(String(describing: response))")
-        return
-      }
-
-      // Check for data
-      guard let data = data else {
-        print("🚨 No data returned from request")
-        return
-      }
-    
-      // The JSONDecoder's decode function can throw an error. To handle any errors we can wrap it in a `do catch` block.
-      do {
-        // MARK: - jSONDecoder with custom date formatter
-        let decoder = JSONDecoder()
-
-        // Create a date formatter object
-        let dateFormatter = DateFormatter()
-
-        // Set the date formatter date format to match the the format of the date string we're trying to parse
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        // Tell the json decoder to use the custom date formatter when decoding dates
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-
-        // Decode the JSON data into our custom `MovieFeed` model.
-        let movieResponse = try decoder.decode(MovieFeed.self, from: data)
-
-        // Access the array of movies
-        let movies = movieResponse.results
-
-          // Run any code that will update UI on the main thread.
-        DispatchQueue.main.async { [weak self] in
-          
-          // We have movies! Do something with them!
-          print("✅ SUCCESS!!! Fetched \(movies.count) movies")
-          
-          // Iterate over all movies and print out their details.
-          for (index, movie) in movies.enumerated() {
-            print("🍿 MOVIE \(index) ------------------")
-            print("Title: \(movie.title)")
-            print("Overview: \(movie.overview)")
-          }
-          
-          // MARK: - Update the movies property so we can access movie data anywhere in the view controller.
-          self?.movies = movies
-          // print("🍏 Fetched and stored \(movies.count) movies")
-          
-          // Prompt the table view to reload its data (i.e. call the data source methods again and re-render contents)
-          self?.newReleasesTableView.reloadData()
-        }
-      } catch {
-          print("🚨 Error decoding JSON data into Movie Response: \(error.localizedDescription)")
-          return
-      }
+    } catch {
+      print("🚨 Failed to load new releases: \(error)")
     }
-
-    // Don't forget to run the session!
-    session.resume()
-    
-    
-    
-    
-    
-    
   }
+  
+  // TODO: API call to fetch Popular Movies
 
 
 }
