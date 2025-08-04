@@ -43,7 +43,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     // Returns a reusable table-view cell object for the specified reuse identifier and adds it to the table. This helps to optimize table view performance as the app only needs to create enough cells to fill the screen and can reuse cells that scroll off the screen instead of creating new ones.
     // The identifier references the identifier you set for the cell previously in the storyboard.
     // The `dequeueReusableCell` method returns a regular `UITableViewCell` so we need to cast it as our custom cell (i.e. `as! MovieCell`) in order to access the custom properties you added to the cell.
-    let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell else {
+      print("🚨 Failed to dequeue MovieCell as MovieCell at row \(indexPath.row)")
+      return UITableViewCell()
+    }
 
     // Get the movie associated table view row
     let movie = movies[indexPath.row]
