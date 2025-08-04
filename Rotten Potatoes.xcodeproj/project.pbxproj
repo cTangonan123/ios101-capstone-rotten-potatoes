@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C4CABD1C2E4035E5003760F1 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = C4CABD1B2E4035E5003760F1 /* Nuke */; };
+		C4CABD1E2E4035E5003760F1 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C4CABD1D2E4035E5003760F1 /* NukeExtensions */; };
+		C4CABD202E4035E5003760F1 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = C4CABD1F2E4035E5003760F1 /* NukeUI */; };
+		C4CABD222E4035E5003760F1 /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = C4CABD212E4035E5003760F1 /* NukeVideo */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		C40880612E3FDE40008EFC48 /* Rotten Potatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rotten Potatoes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CABD202E4035E5003760F1 /* NukeUI in Frameworks */,
+				C4CABD1C2E4035E5003760F1 /* Nuke in Frameworks */,
+				C4CABD1E2E4035E5003760F1 /* NukeExtensions in Frameworks */,
+				C4CABD222E4035E5003760F1 /* NukeVideo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,10 @@
 			);
 			name = "Rotten Potatoes";
 			packageProductDependencies = (
+				C4CABD1B2E4035E5003760F1 /* Nuke */,
+				C4CABD1D2E4035E5003760F1 /* NukeExtensions */,
+				C4CABD1F2E4035E5003760F1 /* NukeUI */,
+				C4CABD212E4035E5003760F1 /* NukeVideo */,
 			);
 			productName = "Rotten Potatoes";
 			productReference = C40880612E3FDE40008EFC48 /* Rotten Potatoes.app */;
@@ -107,6 +122,9 @@
 			);
 			mainGroup = C40880582E3FDE40008EFC48;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C4CABD1A2E4035E5003760F1 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C40880622E3FDE40008EFC48 /* Products */;
 			projectDirPath = "";
@@ -196,6 +214,8 @@
 		};
 		C408807B2E3FDE41008EFC48 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = C40880632E3FDE40008EFC48 /* Rotten Potatoes */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -259,6 +279,8 @@
 		};
 		C408807C2E3FDE41008EFC48 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = C40880632E3FDE40008EFC48 /* Rotten Potatoes */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -335,6 +357,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C4CABD1A2E4035E5003760F1 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C4CABD1B2E4035E5003760F1 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4CABD1A2E4035E5003760F1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		C4CABD1D2E4035E5003760F1 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4CABD1A2E4035E5003760F1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		C4CABD1F2E4035E5003760F1 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4CABD1A2E4035E5003760F1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		C4CABD212E4035E5003760F1 /* NukeVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4CABD1A2E4035E5003760F1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeVideo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C40880592E3FDE40008EFC48 /* Project object */;
 }
