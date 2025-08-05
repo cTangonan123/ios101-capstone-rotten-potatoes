@@ -24,8 +24,6 @@ class MovieDetailViewController: UIViewController {
   
   override func viewDidLoad() {
         super.viewDidLoad()
-      print(movie.title)
-      print(movie.overview)
     movieTitle.text = movie.title
     movieOverview.text = movie.overview
     guard let movieAvgRatingText = movie.voteAverage else {
