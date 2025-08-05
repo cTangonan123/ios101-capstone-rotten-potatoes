@@ -43,9 +43,6 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
     }
   }
   
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-  }
   
   override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
