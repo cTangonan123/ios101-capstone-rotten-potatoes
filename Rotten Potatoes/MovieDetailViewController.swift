@@ -52,7 +52,6 @@ class MovieDetailViewController: UIViewController {
       NukeExtensions.loadImage(with: imageUrl, into: movieBackdropImage)
     }
 
-        // Do any additional setup after loading the view.
   }
   
     
