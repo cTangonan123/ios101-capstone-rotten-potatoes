@@ -23,7 +23,7 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet weak var addToWatchlistButton: UIButton!
   
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
     movieTitle.text = movie.title
     movieOverview.text = movie.overview
     guard let movieAvgRatingText = movie.voteAverage else {
