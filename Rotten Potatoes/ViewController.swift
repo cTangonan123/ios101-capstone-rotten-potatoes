@@ -108,6 +108,9 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
       
       // Use the Nuke library's load image function to (async) fetch and load the image from the image url.
       NukeExtensions.loadImage(with: imageUrl, into: cell.backdropImageView)
+      
+      
+      
     }
     
     cell.popularMovieTitle.text = movie.title
@@ -130,15 +133,30 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
     // MARK: - Pass the selected movie to the Detail View Controller
     // Get the index path for the selected row.
     // `indexPathForSelectedRow` returns an optional `indexPath`, so we'll unwrap it with a guard.
-    guard let selectedIndexPath = newReleasesTableView.indexPathForSelectedRow else { return }
     
-    // Get the selected movie from the movies array using the selected index path's row
-    let selectedMovie = movies[selectedIndexPath.row]
+    if segue.identifier == "ShowNewRelease" {
+      guard let selectedIndexPath = newReleasesTableView.indexPathForSelectedRow else { return }
+      
+      // Get the selected movie from the movies array using the selected index path's row
+      let selectedMovie = movies[selectedIndexPath.row]
+      
+      // Get access to the detail view controller via the segue's destination. (guard to unwrap the optional)
+      guard let movieDetailViewController = segue.destination as? MovieDetailViewController else { return }
+      
+      movieDetailViewController.movie = selectedMovie
+    } else {
+      guard let selectedIndexPath = popularCollectionView.indexPathsForSelectedItems?.first else { return }
+      
+      // Get the selected movie from the movies array using the selected index path's row
+      let selectedMovie = popularMovies[selectedIndexPath.row]
+      
+      // Get access to the detail view controller via the segue's destination. (guard to unwrap the optional)
+      guard let movieDetailViewController = segue.destination as? MovieDetailViewController else { return }
+      
+      movieDetailViewController.movie = selectedMovie
+    }
     
-    // Get access to the detail view controller via the segue's destination. (guard to unwrap the optional)
-    guard let movieDetailViewController = segue.destination as? MovieDetailViewController else { return }
     
-    movieDetailViewController.movie = selectedMovie
   }
   
   // MARK: API call to fetch New Releases

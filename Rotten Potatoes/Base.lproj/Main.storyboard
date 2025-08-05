@@ -69,7 +69,7 @@
                                             <outlet property="movieOverview" destination="PFy-s2-HEa" id="emf-M4-zyz"/>
                                             <outlet property="moviePosterImage" destination="0r7-gu-vOS" id="RxB-8Q-BW0"/>
                                             <outlet property="movieTitle" destination="Ghn-cy-cHL" id="cep-Ap-4ea"/>
-                                            <segue destination="4WB-1v-X2w" kind="show" id="0vp-bD-pRW"/>
+                                            <segue destination="4WB-1v-X2w" kind="show" identifier="ShowNewRelease" id="0vp-bD-pRW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -85,7 +85,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PopularCollectionViewCell" id="ia4-4h-5fx" customClass="PopularCollectionViewCell" customModule="Rotten_Potatoes" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="PopularCollectionViewCell" id="ia4-4h-5fx" customClass="PopularCollectionViewCell" customModule="Rotten_Potatoes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="205"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cJE-Um-6JJ">
@@ -117,6 +117,7 @@
                                             <outlet property="backdropImageView" destination="aqA-sc-91t" id="LAU-zY-9Wj"/>
                                             <outlet property="popularMovieOverview" destination="nSk-Bi-cuW" id="FLV-vs-lxa"/>
                                             <outlet property="popularMovieTitle" destination="lS7-ut-GKG" id="EeK-nJ-VVJ"/>
+                                            <segue destination="4WB-1v-X2w" kind="show" identifier="ShowPopular" id="L3Z-BX-Spm"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -310,6 +311,9 @@
             <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="L3Z-BX-Spm"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
