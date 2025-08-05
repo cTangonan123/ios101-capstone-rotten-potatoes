@@ -11,7 +11,6 @@ import NukeExtensions
 class ViewController: UIViewController, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate,
   UICollectionViewDelegateFlowLayout {
   
-  
   private var movies: [Movie] = []
   private var popularMovies: [Movie] = []
   
@@ -19,7 +18,6 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
   private var currentCarouselIndex = 0
   
   @IBOutlet weak var newReleasesTableView: UITableView!
-  
   @IBOutlet weak var popularCollectionView: UICollectionView!
   
   override func viewDidLoad() {
@@ -30,7 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
     popularCollectionView.delegate = self
     
     
-    // Application uses Config.xcconfig in order to reserve API_KEY and API_READ_ACCESS_TOKEN see README.md for details
+    // Application uses Config.xcconfig in order to reserve API_READ_ACCESS_TOKEN see README.md for details
     Task { await fetchPopularMovies() }
     Task { await fetchNewReleases() }
   }
@@ -47,7 +45,6 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    print("📐 popularCollectionView frame: \(popularCollectionView.frame)")
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -63,13 +60,6 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     // Create, configure and return a table view cell for the given row (i.e. `indexPath.row`)
-    
-    print("🍏 cellForRowAt called for row: \(indexPath.row)")
-    
-    // Get a reusable cell
-    // Returns a reusable table-view cell object for the specified reuse identifier and adds it to the table. This helps to optimize table view performance as the app only needs to create enough cells to fill the screen and can reuse cells that scroll off the screen instead of creating new ones.
-    // The identifier references the identifier you set for the cell previously in the storyboard.
-    // The `dequeueReusableCell` method returns a regular `UITableViewCell` so we need to cast it as our custom cell (i.e. `as! MovieCell`) in order to access the custom properties you added to the cell.
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell else {
       print("🚨 Failed to dequeue MovieCell as MovieCell at row \(indexPath.row)")
       return UITableViewCell()
@@ -118,7 +108,6 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
       
       // Use the Nuke library's load image function to (async) fetch and load the image from the image url.
       NukeExtensions.loadImage(with: imageUrl, into: cell.backdropImageView)
-      
     }
     
     cell.popularMovieTitle.text = movie.title
@@ -139,7 +128,6 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
     // MARK: - Pass the selected movie to the Detail View Controller
-    
     // Get the index path for the selected row.
     // `indexPathForSelectedRow` returns an optional `indexPath`, so we'll unwrap it with a guard.
     guard let selectedIndexPath = newReleasesTableView.indexPathForSelectedRow else { return }
@@ -152,9 +140,6 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
     
     movieDetailViewController.movie = selectedMovie
   }
-  
-  
-  
   
   // MARK: API call to fetch New Releases
   private func fetchNewReleases() async {
