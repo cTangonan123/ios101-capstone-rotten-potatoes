@@ -95,7 +95,6 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    print("Hello why isn't this running?")
     let identifier = "PopularCollectionViewCell"
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? PopularCollectionViewCell else {
       fatalError("Could not dequeue cell with identifier: \(identifier)")
