@@ -58,10 +58,14 @@ class MovieDetailViewController: UIViewController {
 
         // Use the Nuke library's load image function to (async) fetch and load the image from the image url.
         NukeExtensions.loadImage(with: imageUrl, into: moviePosterImage)
+      
+      // accessory styling
       moviePosterImage.layer.shadowPath = UIBezierPath(roundedRect: moviePosterImage.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10, height: 10)).cgPath
       moviePosterImage.layer.shadowColor = UIColor.black.cgColor
       moviePosterImage.layer.shadowOpacity = 0.5
       moviePosterImage.layer.shadowOffset = CGSize(width: 2, height: 2)
+      addToWatchlistButton.layer.cornerRadius = 10
+      writeReviewButton.layer.cornerRadius = 10
     }
     
     if let backdropPath = movie.backdropPath,

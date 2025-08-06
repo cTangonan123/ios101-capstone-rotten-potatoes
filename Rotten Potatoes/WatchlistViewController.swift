@@ -1,0 +1,72 @@
+//
+//  WatchlistViewController.swift
+//  Rotten Potatoes
+//
+//  Created by Chris Tangonan on 8/6/25.
+//
+
+import UIKit
+import NukeExtensions
+
+class WatchlistViewController: UIViewController, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return watchlistMovies.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+    let movie = watchlistMovies[indexPath.row]
+    
+    if let posterPath = movie.posterPath {
+      let imageURL = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)
+      NukeExtensions.loadImage(with: imageURL, into: cell.moviePosterImage)
+    }
+    
+    cell.movieTitle.text = movie.title
+    cell.movieOverview.text = movie.overview
+    return cell
+  }
+  
+  
+  @IBOutlet weak var watchlistTableView: UITableView!
+  var watchlistMovies: [Movie] = []
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    // Do any additional setup after loading the view.
+    watchlistTableView.dataSource = self
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.watchlistMovies = Movie.getMovies(forKey: "Watchlist")
+    watchlistTableView.reloadData()
+  }
+  
+  // TODO: add prepare function
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let selectedIndexPath = watchlistTableView.indexPathForSelectedRow else {
+      return
+    }
+    
+    let movieToPass = watchlistMovies[selectedIndexPath.row]
+    
+    if let destinationViewController = segue.destination as? MovieDetailViewController {
+      destinationViewController.movie = movieToPass
+    }
+  }
+  
+  
+
+  /*
+  // MARK: - Navigation
+
+  // In a storyboard-based application, you will often want to do a little preparation before navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      // Get the new view controller using segue.destination.
+      // Pass the selected object to the new view controller.
+  }
+  */
+
+}
