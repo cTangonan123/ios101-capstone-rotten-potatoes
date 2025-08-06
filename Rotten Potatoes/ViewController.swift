@@ -180,9 +180,9 @@ class ViewController: UIViewController, UITableViewDataSource, UICollectionViewD
     }
   }
   
-  // TODO: API call to fetch Popular Movies
+  // TODO: refactor from Popular to Upcoming will do last as current time constraints
   private func fetchPopularMovies() async {
-    let endpoint = "/movie/popular"
+    let endpoint = "/movie/upcoming"
     let query = [
       "language": "en-US",
       "page": "1"

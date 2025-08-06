@@ -3,6 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -152,7 +154,7 @@
                                 <rect key="frame" x="0.0" y="162" width="393" height="573"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOp-Tw-Yqm">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="674.33333333333337"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9es-h5-3Pf">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="395"/>
@@ -193,18 +195,35 @@
                                                     <constraint firstAttribute="height" constant="128" id="nti-ef-w7n"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEP-iU-AZs">
-                                                <rect key="frame" x="33" y="533.66666666666663" width="151" height="35"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Add to Watchlist"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JEP-iU-AZs">
+                                                <rect key="frame" x="33" y="533.66666666666663" width="151" height="43.333333333333371"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title=" Add to Watchlist">
+                                                    <color key="titleShadowColor" systemColor="systemBackgroundColor"/>
+                                                    <imageReference key="image" image="plus" catalog="system" symbolScale="default"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                                </state>
+                                                <state key="selected" title=" In Watchlist" image="minus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="didTapWatchlist:" destination="4WB-1v-X2w" eventType="touchUpInside" id="yaR-ih-KOI"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDk-o4-Qbd">
-                                                <rect key="frame" x="209" y="533.66666666666663" width="151" height="35"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Write A Review"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDk-o4-Qbd">
+                                                <rect key="frame" x="209" y="533.66666666666663" width="151" height="43.333333333333371"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title=" Write A Review">
+                                                    <imageReference key="image" image="list.bullet.clipboard" catalog="system" symbolScale="default"/>
+                                                </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXB-VM-0f5">
-                                                <rect key="frame" x="132.33333333333337" y="588.66666666666663" width="128.66666666666663" height="27"/>
+                                                <rect key="frame" x="132.33333333333337" y="597" width="128.66666666666663" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -273,11 +292,11 @@
             </objects>
             <point key="canvasLocation" x="2944.2748091603053" y="3.5211267605633805"/>
         </scene>
-        <!--Item-->
+        <!--New & Upcoming-->
         <scene sceneID="hjT-6D-39P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bmn-HU-6rq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ulI-SC-jHl"/>
+                    <tabBarItem key="tabBarItem" title="New &amp; Upcoming" image="movieclapper" catalog="system" id="ulI-SC-jHl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w0d-k5-DU1">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
@@ -315,8 +334,15 @@
         <segue reference="L3Z-BX-Spm"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="list.bullet.clipboard" catalog="system" width="98" height="128"/>
+        <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="movieclapper" catalog="system" width="128" height="113"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

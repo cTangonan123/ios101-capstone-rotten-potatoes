@@ -22,8 +22,26 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet weak var writeReviewButton: UIButton!
   @IBOutlet weak var addToWatchlistButton: UIButton!
   
+  @IBAction func didTapWatchlist(_ sender: UIButton) {
+    sender.isSelected = !sender.isSelected
+    
+    if sender.isSelected {
+      movie.addToWatchlist()
+    } else {
+      movie.removeFromWatchlist()
+    }
+    
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let watchlist = Movie.getMovies(forKey: "Watchlist")
+    if watchlist.contains(movie) {
+      addToWatchlistButton.isSelected = true
+    } else {
+      addToWatchlistButton.isSelected = false
+    }
+    
     movieTitle.text = movie.title
     movieOverview.text = movie.overview
     guard let movieAvgRatingText = movie.voteAverage else {
@@ -43,7 +61,7 @@ class MovieDetailViewController: UIViewController {
       moviePosterImage.layer.shadowPath = UIBezierPath(roundedRect: moviePosterImage.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10, height: 10)).cgPath
       moviePosterImage.layer.shadowColor = UIColor.black.cgColor
       moviePosterImage.layer.shadowOpacity = 0.5
-      moviePosterImage.layer.shadowOffset = CGSize(width: 0, height: 2)
+      moviePosterImage.layer.shadowOffset = CGSize(width: 2, height: 2)
     }
     
     if let backdropPath = movie.backdropPath,
