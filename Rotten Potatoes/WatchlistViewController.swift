@@ -14,7 +14,10 @@ class WatchlistViewController: UIViewController, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell else {
+      // Return a default cell if casting fails
+      return UITableViewCell()
+    }
     let movie = watchlistMovies[indexPath.row]
     
     if let posterPath = movie.posterPath {
