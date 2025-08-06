@@ -44,7 +44,6 @@ class WatchlistViewController: UIViewController, UITableViewDataSource {
     watchlistTableView.reloadData()
   }
   
-  // TODO: add prepare function
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let selectedIndexPath = watchlistTableView.indexPathForSelectedRow else {
       return
