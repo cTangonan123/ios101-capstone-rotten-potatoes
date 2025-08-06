@@ -11,6 +11,14 @@
 ## Overview
 Rotten Potatoes, incorporates various UI based elements in order to display multiple options for the user to browse through either popular or newly released movies.
 
+<div>
+    <a href="https://www.loom.com/share/0bef3fcc928542c6a5d97b3b953eab69">
+    </a>
+    <a href="https://www.loom.com/share/0bef3fcc928542c6a5d97b3b953eab69">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/0bef3fcc928542c6a5d97b3b953eab69-c8566bbcac551bb9-full-play.gif">
+    </a>
+  </div>
+
 ### Description
 Rotten Potatoes, gives users the chance to document and log their film watching journey. Where users are immediately presented with a list of newly released fims. Users can add movies to their watchlist and/or even write a review to be shared with the other users of the Rotten Potatoes Application. Users can keep track of their watchlists and reviews, with the capablity to view at any time.
 
