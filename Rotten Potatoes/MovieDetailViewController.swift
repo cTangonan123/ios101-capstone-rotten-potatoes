@@ -23,6 +23,7 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet weak var addToWatchlistButton: UIButton!
   
   @IBAction func didTapWatchlist(_ sender: UIButton) {
+    
     sender.isSelected = !sender.isSelected
     
     if sender.isSelected {
@@ -78,14 +79,17 @@ class MovieDetailViewController: UIViewController {
   
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+      // Get the new view controller using segue.destination.
+      // Pass the selected object to the new view controller.
+      guard let createReviewViewController = segue.destination as? CreateReviewViewController else { return }
+      createReviewViewController.movie = self.movie
+        
     }
-    */
+    
 
 }
