@@ -23,7 +23,7 @@ class UserReviewsViewController: UIViewController, UITableViewDataSource {
       NukeExtensions.loadImage(with: imageURL, into: cell.moviePosterImage)
     }
     cell.movieTitle.text = review.reviewMovie.title
-    cell.reviewTitle.text = "for the movie: \(review.reviewTitle)"
+    cell.reviewTitle.text = review.reviewTitle
     cell.reviewDescription.text = review.reviewDescription
     cell.userRating.text = String(review.userRating)
     
