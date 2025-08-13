@@ -45,7 +45,11 @@ extension UserReview {
     let defaults = UserDefaults.standard
     if let data = defaults.data(forKey: key) {
       let decodedData = try! JSONDecoder().decode([UserReview].self, from: data)
-      return decodedData
+      if let decodedData = try? JSONDecoder().decode([UserReview].self, from: data) {
+        return decodedData
+      } else {
+        return []
+      }
     } else {
       return []
     }
