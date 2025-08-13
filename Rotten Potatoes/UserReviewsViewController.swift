@@ -22,10 +22,10 @@ class UserReviewsViewController: UIViewController, UITableViewDataSource {
       let imageURL = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)
       NukeExtensions.loadImage(with: imageURL, into: cell.moviePosterImage)
     }
-    cell.movieTitle.text = review.reviewMovie.title
+    cell.movieTitle.text = "for: \(review.reviewMovie.title)"
     cell.reviewTitle.text = review.reviewTitle
     cell.reviewDescription.text = review.reviewDescription
-    cell.userRating.text = String(review.userRating)
+    cell.userRating.text = "Rating: \(String(review.userRating))"
     
     
     return cell
