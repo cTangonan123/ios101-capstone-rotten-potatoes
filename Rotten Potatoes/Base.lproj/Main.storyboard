@@ -221,6 +221,9 @@
                                                 <state key="normal" title=" Write A Review">
                                                     <imageReference key="image" image="list.bullet.clipboard" catalog="system" symbolScale="default"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="uAU-Ra-Zc2" kind="show" id="WkV-Eo-jr3"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXB-VM-0f5">
                                                 <rect key="frame" x="132.33333333333337" y="597" width="128.66666666666663" height="27"/>
@@ -292,6 +295,113 @@
             </objects>
             <point key="canvasLocation" x="2944.2748091603053" y="3.5211267605633805"/>
         </scene>
+        <!--User Reviews View Controller-->
+        <scene sceneID="dtN-1I-X5k">
+            <objects>
+                <viewController id="ZAY-ge-fB0" customClass="UserReviewsViewController" customModule="Rotten_Potatoes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E0L-Q1-rqN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mxc-GE-qd6">
+                                <rect key="frame" x="0.0" y="162" width="393" height="573"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="152" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="By6-d7-7vD">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="573"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="152" id="cli-6I-tKf" customClass="ReviewCell" customModule="Rotten_Potatoes" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="393" height="152"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cli-6I-tKf" id="QVl-6N-U3y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="152"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xav-jG-uty">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="152"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="ezm-cO-Xuy"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Review Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atz-RA-Xqj">
+                                                            <rect key="frame" x="108" y="11" width="265" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="for Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNH-XO-gd4">
+                                                            <rect key="frame" x="108" y="36.333333333333329" width="265" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xx-oJ-mSV">
+                                                            <rect key="frame" x="108" y="61.666666666666657" width="265" height="20.333333333333343"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XC-Qo-S7r">
+                                                            <rect key="frame" x="108" y="91" width="265" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="OOJ-Us-RIs"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="VNH-XO-gd4" secondAttribute="trailing" id="GwB-Ry-201"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="atz-RA-Xqj" secondAttribute="trailing" id="H2m-t6-6Mz"/>
+                                                        <constraint firstItem="atz-RA-Xqj" firstAttribute="top" secondItem="QVl-6N-U3y" secondAttribute="topMargin" id="Jqu-m5-rqL"/>
+                                                        <constraint firstItem="6xx-oJ-mSV" firstAttribute="top" secondItem="VNH-XO-gd4" secondAttribute="bottom" constant="5" id="L4h-TM-Q6Y"/>
+                                                        <constraint firstItem="4XC-Qo-S7r" firstAttribute="top" secondItem="6xx-oJ-mSV" secondAttribute="bottom" constant="5" id="LOU-Dm-ojA"/>
+                                                        <constraint firstItem="4XC-Qo-S7r" firstAttribute="leading" secondItem="xav-jG-uty" secondAttribute="trailing" constant="8" id="PCT-N4-dRt"/>
+                                                        <constraint firstItem="6xx-oJ-mSV" firstAttribute="leading" secondItem="xav-jG-uty" secondAttribute="trailing" constant="8" id="QGM-QI-VBY"/>
+                                                        <constraint firstAttribute="bottom" secondItem="xav-jG-uty" secondAttribute="bottom" id="VX9-zF-4i1"/>
+                                                        <constraint firstItem="xav-jG-uty" firstAttribute="leading" secondItem="QVl-6N-U3y" secondAttribute="leading" id="aHS-ZI-D0W"/>
+                                                        <constraint firstItem="xav-jG-uty" firstAttribute="top" secondItem="QVl-6N-U3y" secondAttribute="top" id="cjK-sg-UAN"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="4XC-Qo-S7r" secondAttribute="trailing" id="clU-bS-cQV"/>
+                                                        <constraint firstItem="VNH-XO-gd4" firstAttribute="leading" secondItem="xav-jG-uty" secondAttribute="trailing" constant="8" id="cyH-lj-uOG"/>
+                                                        <constraint firstItem="VNH-XO-gd4" firstAttribute="top" secondItem="atz-RA-Xqj" secondAttribute="bottom" constant="5" id="e3o-US-2E3"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="6xx-oJ-mSV" secondAttribute="trailing" id="hoD-ty-0CL"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="4XC-Qo-S7r" secondAttribute="bottom" id="liQ-UM-HIW"/>
+                                                        <constraint firstItem="atz-RA-Xqj" firstAttribute="leading" secondItem="xav-jG-uty" secondAttribute="trailing" constant="8" id="tS9-v2-qcn"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="moviePosterImage" destination="xav-jG-uty" id="N9k-nq-eep"/>
+                                                    <outlet property="movieTitle" destination="VNH-XO-gd4" id="YJA-pM-VJ7"/>
+                                                    <outlet property="reviewDescription" destination="4XC-Qo-S7r" id="Eti-XG-h6O"/>
+                                                    <outlet property="reviewTitle" destination="atz-RA-Xqj" id="2oV-gi-sn7"/>
+                                                    <outlet property="userRating" destination="6xx-oJ-mSV" id="Pt3-3r-zXh"/>
+                                                    <segue destination="4WB-1v-X2w" kind="show" id="chG-S0-7Ab"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LJX-sC-t0K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mxc-GE-qd6" firstAttribute="leading" secondItem="LJX-sC-t0K" secondAttribute="leading" id="JKF-fN-D1b"/>
+                            <constraint firstItem="LJX-sC-t0K" firstAttribute="trailing" secondItem="mxc-GE-qd6" secondAttribute="trailing" id="K7v-rn-s0N"/>
+                            <constraint firstItem="mxc-GE-qd6" firstAttribute="top" secondItem="LJX-sC-t0K" secondAttribute="top" id="odQ-Ke-VgV"/>
+                            <constraint firstItem="LJX-sC-t0K" firstAttribute="bottom" secondItem="mxc-GE-qd6" secondAttribute="bottom" id="zSB-mm-158"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="N3t-Vh-K4Y"/>
+                    <connections>
+                        <outlet property="userReviewTableView" destination="By6-d7-7vD" id="Vbu-Rh-RZL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AjM-dj-pql" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1954.9618320610687" y="700.70422535211276"/>
+        </scene>
         <!--New & Upcoming-->
         <scene sceneID="hjT-6D-39P">
             <objects>
@@ -324,6 +434,7 @@
                     <connections>
                         <segue destination="bmn-HU-6rq" kind="relationship" relationship="viewControllers" id="bti-O7-Qw6"/>
                         <segue destination="LfL-yD-Ytr" kind="relationship" relationship="viewControllers" id="A9z-sq-1Jt"/>
+                        <segue destination="Kmp-69-SUX" kind="relationship" relationship="viewControllers" id="xkR-QD-igw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNw-t1-IUO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -442,21 +553,286 @@
             </objects>
             <point key="canvasLocation" x="1954.9618320610687" y="-682.3943661971831"/>
         </scene>
+        <!--Create Review View Controller-->
+        <scene sceneID="eDH-gB-1sq">
+            <objects>
+                <viewController id="uAU-Ra-Zc2" customClass="CreateReviewViewController" customModule="Rotten_Potatoes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dWE-Hm-OcE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z3b-Cb-ymq">
+                                <rect key="frame" x="17" y="162" width="360" height="573"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vba-wD-asg">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VM-vt-ySY">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="BTN-kn-JgV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Review Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nxG-0s-too">
+                                                <rect key="frame" x="140" y="0.0" width="220" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="organization-title"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1cL-pW-Cca"/>
+                                            <constraint firstAttribute="trailing" secondItem="nxG-0s-too" secondAttribute="trailing" id="ga0-LJ-pXk"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gj1-fX-5Vy">
+                                        <rect key="frame" x="0.0" y="30" width="360" height="28.666666666666671"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMr-5h-H5d">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="28.666666666666668"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="140" id="rDB-m7-6Tc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bY8-Fn-Nj4">
+                                                <rect key="frame" x="140" y="0.0" width="220" height="28.666666666666668"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEy-va-W8X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="9vm-la-tyL"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="q5g-0p-coF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2u-59-DFX">
+                                                        <rect key="frame" x="22" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="eyt-2P-jEs"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="yaN-DG-FSI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sb-XV-XSW">
+                                                        <rect key="frame" x="44" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="ylF-QK-9zz"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="X1b-lr-yZd"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ed-IH-fOz">
+                                                        <rect key="frame" x="66" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="dbI-HL-gYd"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="L7x-CT-36m"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2a-vz-Fkv">
+                                                        <rect key="frame" x="88" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="wwn-yR-cHV"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="uQP-sy-KrH"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBt-Gd-YaV">
+                                                        <rect key="frame" x="110" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="GLC-da-5ax"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="NzJ-pQ-7PE"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEy-O0-oa3">
+                                                        <rect key="frame" x="132" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="jU5-G8-z0q"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="AQu-bf-LLh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXi-rG-a1C">
+                                                        <rect key="frame" x="154" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="hQ6-Gk-UqW"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="b1n-BH-FQH"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCA-iF-ANb">
+                                                        <rect key="frame" x="176" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="QTE-PT-AoE"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="F7B-0l-OFu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onh-ce-IBU">
+                                                        <rect key="frame" x="198" y="0.0" width="22" height="28.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="E2j-GQ-bes"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="star" catalog="system"/>
+                                                        <state key="selected" image="star.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapRatingStar:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="Z6a-a3-Dr0"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="xEy-va-W8X" firstAttribute="leading" secondItem="bY8-Fn-Nj4" secondAttribute="leading" id="XY0-ab-BHF"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="bY8-Fn-Nj4" secondAttribute="trailing" id="6kk-sl-5Xf"/>
+                                            <constraint firstItem="bY8-Fn-Nj4" firstAttribute="leading" secondItem="nMr-5h-H5d" secondAttribute="trailing" id="zYB-mw-rGH"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0r-Al-HUA">
+                                        <rect key="frame" x="0.0" y="58.666666666666657" width="360" height="199.99999999999997"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-hY-7ig">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="140" id="CkT-5O-vCo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Write Your Review Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqX-8D-cET">
+                                                <rect key="frame" x="140" y="0.0" width="220" height="200"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="zqX-8D-cET" secondAttribute="bottom" id="2HV-cu-bRr"/>
+                                            <constraint firstItem="gvk-hY-7ig" firstAttribute="top" secondItem="i0r-Al-HUA" secondAttribute="top" id="KJi-g6-gOw"/>
+                                            <constraint firstAttribute="height" constant="200" id="chC-eb-g5K"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sY2-ot-vSy">
+                                        <rect key="frame" x="0.0" y="258.66666666666674" width="360" height="314.33333333333326"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUu-HU-VzA">
+                                                <rect key="frame" x="0.0" y="0.0" width="360" height="314.33333333333331"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="checkmark.message" catalog="system" title=" Submit Review"/>
+                                                <connections>
+                                                    <action selector="submitReview:" destination="uAU-Ra-Zc2" eventType="touchUpInside" id="XJ2-UO-eTB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="eUT-F5-z9C"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vz7-U5-JvD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Z3b-Cb-ymq" firstAttribute="leading" secondItem="vz7-U5-JvD" secondAttribute="leading" constant="17" id="DH4-tY-RzJ"/>
+                            <constraint firstItem="vz7-U5-JvD" firstAttribute="trailing" secondItem="Z3b-Cb-ymq" secondAttribute="trailing" constant="16" id="Tqy-0R-lOX"/>
+                            <constraint firstItem="vz7-U5-JvD" firstAttribute="bottom" secondItem="Z3b-Cb-ymq" secondAttribute="bottom" id="lhe-EY-Y5a"/>
+                            <constraint firstItem="Z3b-Cb-ymq" firstAttribute="top" secondItem="vz7-U5-JvD" secondAttribute="top" id="wxQ-d0-bER"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="o0U-Dg-e52"/>
+                    <connections>
+                        <outlet property="movieReviewDescription" destination="zqX-8D-cET" id="csx-rB-UmW"/>
+                        <outlet property="movieReviewTitle" destination="nxG-0s-too" id="UDb-d3-sCn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YhB-x9-RLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3945.801526717557" y="3.5211267605633805"/>
+        </scene>
+        <!--Reviews-->
+        <scene sceneID="GLQ-rc-jH7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kmp-69-SUX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Reviews" image="bubble" catalog="system" id="QL3-sZ-tgz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGs-47-khh">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZAY-ge-fB0" kind="relationship" relationship="rootViewController" id="DDv-UL-Rar"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aw1-Ak-fk7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="701"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zxa-md-tII"/>
+        <segue reference="chG-S0-7Ab"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="bubble" catalog="system" width="128" height="110"/>
+        <image name="checkmark.message" catalog="system" width="128" height="116"/>
         <image name="eyes" catalog="system" width="128" height="99"/>
         <image name="list.bullet.clipboard" catalog="system" width="98" height="128"/>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="movieclapper" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
