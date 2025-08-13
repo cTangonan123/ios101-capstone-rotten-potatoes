@@ -60,9 +60,9 @@ Rotten Potatoes, gives users the chance to document and log their film watching 
     * ...
 - [x] Details of a Movie
     * A user can select a newly release film, in order to view their details of a movie and `add to watchlist` or `write a review` for the movie
-- [ ] Create a Movie Review
+- [x] Create a Movie Review
     * A user can write a review of a movie, provided a `title`, `description` and `rating` of the movie
-- [ ] Stream of User's watchlist
+- [x] Stream of User's watchlist
     * User can select the `watchlist` tab and be presented with all movies saved in the user's `watchlist`
 - [ ] Stream of User's reviews
     * User can select the `reviews` tab and be presented with all reviews the author has made.
