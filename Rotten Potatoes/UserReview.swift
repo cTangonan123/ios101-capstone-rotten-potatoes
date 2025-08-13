@@ -33,7 +33,12 @@ extension UserReview {
   static func save(_ reviews: [UserReview], forKey key: String) {
     let defaults = UserDefaults.standard
     let encodedData = try! JSONEncoder().encode(reviews)
-    defaults.set(encodedData, forKey: key)
+    do {
+      let encodedData = try JSONEncoder().encode(reviews)
+      defaults.set(encodedData, forKey: key)
+    } catch {
+      print("Failed to encode reviews: \(error)")
+    }
   }
   
   static func getReviews(forKey key: String) -> [UserReview] {
