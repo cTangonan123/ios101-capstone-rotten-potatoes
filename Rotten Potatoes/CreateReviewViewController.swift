@@ -32,7 +32,31 @@ class CreateReviewViewController: UIViewController {
     // Build cache of star buttons at runtime to avoid sender/superview issues.
 //    starButtons = discoverStarButtons(startingAt: view)
 //    // Ensure initial state
-//    updateStars(selectedCount: ratingReviewCount)
+    // Ensure starButtons is populated
+    guard let tappedIndex = starButtons.firstIndex(of: sender) else { return }
+    let selectedCount = tappedIndex + 1
+    for (index, button) in starButtons.enumerated() {
+      button.isSelected = index < selectedCount
+    }
+    ratingReviewCount = selectedCount
+    print("🐞 ratingReview Count: \(ratingReviewCount)")
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Build cache of star buttons at runtime to avoid sender/superview issues.
+    if starButtons.isEmpty {
+      // Assumes star buttons are tagged 1...N in storyboard
+      for tag in 1...5 {
+        if let button = self.view.viewWithTag(tag) as? UIButton {
+          starButtons.append(button)
+        }
+      }
+    }
+    // Ensure initial state
+    for (index, button) in starButtons.enumerated() {
+      button.isSelected = index < ratingReviewCount
+    }
     let userReviews = UserReview.getReviews(forKey: UserReview.userReviewsKey)
     
   }
