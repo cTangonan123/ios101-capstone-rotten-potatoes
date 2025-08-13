@@ -88,16 +88,16 @@ Rotten Potatoes, gives users the chance to document and log their film watching 
 
 **Flow Navigation** (Screen to Screen)
 
-- [ ] New Releases
+- [x] New Releases
 * Movie Details
-- [ ] Movie Details
+- [x] Movie Details
 * add to watchlist
 * write a Review
-- [ ] Write a Review
+- [x] Write a Review
 * Movie Details
-- [ ] User selects Reviews Tab
+- [x] User selects Reviews Tab
 * present with Stream of Users Reviews
-- [ ] User selects Watchlist Tab
+- [x] User selects Watchlist Tab
 * present with Stream of Movies in Watchlist
 
 
