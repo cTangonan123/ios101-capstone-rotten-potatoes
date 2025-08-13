@@ -24,7 +24,6 @@ class CreateReviewViewController: UIViewController {
     } else {
       ratingReviewCount -= 1
     }
-    print("🐞 ratingReview Count: \(ratingReviewCount)")
   }
   
   override func viewDidLoad() {
