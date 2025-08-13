@@ -11,6 +11,17 @@
 ## Overview
 Rotten Potatoes, incorporates various UI based elements in order to display multiple options for the user to browse through either popular or newly released movies.
 
+### Week 10 Vide
+<div>
+    <a href="https://www.loom.com/share/2bbdadebe2bf4edbb9c7f2697b38751c">
+    </a>
+    <a href="https://www.loom.com/share/2bbdadebe2bf4edbb9c7f2697b38751c">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/2bbdadebe2bf4edbb9c7f2697b38751c-4f939768100e7543-full-play.gif">
+    </a>
+  </div>
+
+
+### Week 9 Video
 <div>
     <a href="https://www.loom.com/share/0bef3fcc928542c6a5d97b3b953eab69">
     </a>
@@ -64,7 +75,7 @@ Rotten Potatoes, gives users the chance to document and log their film watching 
     * A user can write a review of a movie, provided a `title`, `description` and `rating` of the movie
 - [x] Stream of User's watchlist
     * User can select the `watchlist` tab and be presented with all movies saved in the user's `watchlist`
-- [ ] Stream of User's reviews
+- [x] Stream of User's reviews
     * User can select the `reviews` tab and be presented with all reviews the author has made.
 
 ### 3. Navigation
