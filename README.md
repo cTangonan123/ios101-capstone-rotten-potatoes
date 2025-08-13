@@ -11,7 +11,7 @@
 ## Overview
 Rotten Potatoes, incorporates various UI based elements in order to display multiple options for the user to browse through either popular or newly released movies.
 
-### Week 10 Vide
+### Week 10 Video
 <div>
     <a href="https://www.loom.com/share/2bbdadebe2bf4edbb9c7f2697b38751c">
     </a>
